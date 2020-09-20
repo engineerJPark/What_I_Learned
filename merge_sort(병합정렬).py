@@ -5,6 +5,8 @@
 #문제가 있는 모듈
 def mergesort(lst):
     n = len(lst)
+    if n<= 1
+        return
     l = n//2
     lst1 = lst[:l]
     lst2 = lst[l:]
