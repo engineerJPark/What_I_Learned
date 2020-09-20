@@ -20,3 +20,19 @@ def insert_sort(lst):
 
 d = [3,1,5,2,4]
 print(insert_sort(d))
+
+# 책에서 제시하는 삽입정렬 예시이다.
+
+def ins_sort(lst):
+    n = len(lst)
+    for i in range(1,n):
+        key = lst[i]        #i번위치의 값을 key라고 지정한다.
+        j = i - 1
+        while j>=0 and lst[j]>key : 
+            lst[j+1] = lst[j]
+            j -= 1
+        lst[j+1] = key
+        
+d = [2,4,5,1,3]
+ins_sort(d)
+print(d)
