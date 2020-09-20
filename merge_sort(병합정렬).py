@@ -4,12 +4,12 @@
 
 #문제가 있는 모듈
 def mergesort(lst):
-    l = int(len(lst)/2 - len(lst)%2)
+    n = len(lst)
+    l = n//2
     lst1 = lst[:l]
     lst2 = lst[l:]
-    if l>1:
-        mergesort(lst1)
-        mergesort(lst2)
+    mergesort(lst1)
+    mergesort(lst2)
     return mergesort_sub(lst1, lst2)
 
 
