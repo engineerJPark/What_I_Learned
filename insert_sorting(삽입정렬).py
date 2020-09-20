@@ -29,7 +29,7 @@ def ins_sort(lst):
         key = lst[i]        #i번위치의 값을 key라고 지정한다.
         j = i - 1
         while j>=0 and lst[j]>key : 
-            lst[j+1] = lst[j]
+            lst[j+1] = lst[j]        #한칸씩 밀어내는 과정이다.
             j -= 1
         lst[j+1] = key
         
