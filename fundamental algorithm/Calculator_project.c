@@ -15,6 +15,7 @@ typedef struct {	//stack 그자체
 	Node *top;
 } Stack;
 
+
 void push(Stack *stack, char* data){
 	Node *node = (Node*)malloc(sizeof(Node));
 	strcpy(node->data, data);
@@ -40,16 +41,6 @@ char* pop(Stack *stack){//top 위치에서 데이터 하나를 쏙 빼간다
 	return data;
 }
 
-// void show(Stack *stack){
-// 	Node *cur = stack->top;
-// 	printf("---stack top---\n");
-// 	while(cur != NULL){		//NULL인 곳이 bottom이 되도록 설정하였다.
-// 		printf("%d\n", cur->data);
-// 		cur = cur->next;
-// 	}
-// 	printf("---stack bottom---\n");
-// }
-
 // 중위 표기법 to 후위 표기법
 // 1. 피연산자 바로 출력
 // 2. 연산자 : 자신보다 우선순위 높거나 같은 것을 제외(은 출력), 자신을 스택에 푸시
@@ -69,8 +60,9 @@ int getPriority(char* i){	//우선순위 함수
 //s는 문자를 담는 이중 포인터, 37 + 5가 "37" "+" "5"로 들어오게 할 것이다.
 //즉 주소들의 배열로 만든다.
 //size는 들어오는 각 문자의 개수 - 공백으로 센다.
-char* transition(Stack *stack, char ** s, int size){
-	char res[1000] = "";//후위표기법의 결과물
+char * transition(Stack *stack, char ** s, int size){
+	char res[1000] = {};//후위표기법의 결과물
+    char *resptr = res;//이걸 넣어서 해결했다... 배열 그대로 리턴하면 NULL로 리턴된다. 왜지? 컴파일러 문젠가?
 	for(int i = 0; i<size; i++){
 		//조건문 시작
 		if(!strcmp(s[i],"+") || !strcmp(s[i],"-") || !strcmp(s[i],"*") || !strcmp(s[i],"/")){//연산자가 들어왔을 때
@@ -86,7 +78,7 @@ char* transition(Stack *stack, char ** s, int size){
 				strcat(res, pop(stack)); strcat(res, " ");//)가 나오면 (가 나올때까지 스택에서 pop한다.
 			}//보관한 연산자를 꺼내는 역할이다.
 			pop(stack);
-		}	
+		}
 		else {strcat(res, s[i]); strcat(res, " ");}	//숫자는 바로 입력시킨다.
 		//조건문 끝
 	}
@@ -94,7 +86,7 @@ char* transition(Stack *stack, char ** s, int size){
 		strcat(res, pop(stack));
 		strcat(res, " ");
 	}
-	return res;
+	return resptr;
 }
 
 //후위 표기법에 대한 연산 함수
@@ -105,9 +97,9 @@ void calculate(Stack *stack, char** s, int size){
 			x = atoi(pop(stack));//연산자가 나오면 앞선 숫자 두개를 꺼낸다.
 			y = atoi(pop(stack));
 			if(!strcmp(s[i], "+")) z = y + x;
-			if(!strcmp(s[i], "+")) z = y - x;
-			if(!strcmp(s[i], "+")) z = y * x;
-			if(!strcmp(s[i], "+")) z = y / x;
+			if(!strcmp(s[i], "-")) z = y - x;
+			if(!strcmp(s[i], "*")) z = y * x;
+			if(!strcmp(s[i], "/")) z = y / x;
 			char buffer[100];
 			sprintf(buffer, "%d", z);	//z값 buffer에 문자열로서 저장
 			push(stack, buffer);	//연산 결과 buffer를 stack에 push
@@ -127,7 +119,7 @@ int main(void){
 	char a[100] = "( ( 3 + 4 ) * 5 ) - 5 * 7 * 5 - 5 * 10";
 	int size = 1;
 	for(int i =0; i < strlen(a); i++){//공백 개수 세면 size가 나온다.
-		if(a[i] == ' ') size++;//고침
+		if(a[i] == ' ') size++;
 	}
 	char *ptr = strtok(a, " ");	//공백 기준으로 잘라낸 앞부분 연산자/숫자
 	char **input = (char**)malloc(sizeof(char*) * size);//주소를 저장하는 배열을 만들려고 이중포인터 선언
@@ -135,31 +127,28 @@ int main(void){
 		input[i] = (char*)malloc(sizeof(char)*100);//주소를 저장하는 배열.주어진 크기는 의미 없음
 	}
 	for(int i = 0; i<size; i++){
-		strcpy(input[i], ptr);//ptr을 input으로 복사
-		ptr = strtok(NULL, " ");//다음 복사할 것 얻어옴. NULL은 하던거 마저 한다는 뜻이다.
+		strcpy(input[i], ptr);//ptr을 input으로 복사  
+		ptr = strtok(NULL, " ");//다음 복사할 것 얻어옴. NULL은 하던거 마저 한다는 뜻이다. 왜인지 괄호와 연산자는 잘리지가 않는다...
 	}
-	char b[1000]= "";	//후위표기방식이 저장될 string
-	strcpy(b, transition(&stack, input, size));
+	char b[1000] = {};//후위표기방식이 저장될 string
+    char* res ;
+    res = transition(&stack, input, size);    //이부분이 에러다. 대체 왜 res가 NULL이 되는 건가
+	strcpy(b, res);   
 	printf("후위 표기법 %s\n", b);
-	
+
+
 	////////////////////////////////////
-	
 	size = 1;
 	for (int i =0; i < strlen(b) -1 ; i++){
 		if(b[i] == ' ') size++;	//후위표기 결과 size 재측정. 괄호가 사라졌으므로
 	}
-	char **input2 = (char**)malloc(sizeof(char*) * size);//주소를 저장하는 배열을 만들려고 이중포인터 선언
 	char *ptr2 = strtok(b, " ");
 	for(int i = 0; i<size; i++){
-		strcpy(input2[i], ptr2);
+		strcpy(input[i], ptr2);//어차피 size변수로 길이 제한해줄거라 input새로 할당할 필요 없음.
 		ptr2 = strtok(NULL, " ");
 	}
 	calculate(&stack, input, size);
 	
-	free(ptr);
-	free(ptr2);
-	free(input);
-	free(input2);
 	
 	return 0;
 }
