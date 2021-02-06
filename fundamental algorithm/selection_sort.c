@@ -27,7 +27,7 @@ int main(void){
 	
 	for(int i = 0; i < n; i++){
 		min = INT_MAX;
-		for(int j = i; j < n; j++){//최소값 찾기
+		for(int j = i; j < n ; j++){//최소값 찾기
 			if(min > a[j]){
 				min = a[j];
 				index = j;

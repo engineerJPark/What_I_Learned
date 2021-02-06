@@ -25,12 +25,11 @@ int main(void){
 		scanf("%d", &a[i]);
 	}
 	
-	for(int i = 0; i < n; i++){//정렬단계
+	for(int i = 0; i < n - 1 ; i++){//정렬단계
 		int j = i;
 		while(j >= 0 && a[j] > a[j+1]){//정렬된 곳의 마지막 부분 보다 작은 게 나오면 실행
-			swap(&a[j], &a[j + 1]){
+			swap(&a[j], &a[j + 1]);
 			j--;//끝까지 밀어넣겠다는 의지
-			}
 		}
 	}
 	
