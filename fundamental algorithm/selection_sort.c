@@ -25,7 +25,7 @@ int main(void){
 		scanf("%d", &a[i]);
 	}
 	
-	for(int i = 0; i < n; i++){
+	for(int i = 0; i < n - 1; i++){
 		min = INT_MAX;
 		for(int j = i; j < n ; j++){//최소값 찾기
 			if(min > a[j]){
