@@ -1,3 +1,5 @@
+// client는 interface를 import하고, implementation은 interface를 export한다.
+
 static char rcsid[] = "$Id$";
 #include "arith.h"
 int Arith_max(int x, int y) {
@@ -23,6 +25,7 @@ int Arith_mod(int x, int y) {
 int Arith_floor(int x, int y) {
 	return Arith_div(x, y);
 }
+//x가 y로 나누어떨어지지 않는다는 조건 추가
 int Arith_ceiling(int x, int y) {
 	return Arith_div(x, y) + (x%y != 0);
 }
