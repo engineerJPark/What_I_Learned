@@ -32,7 +32,7 @@ void push(priorityQueue * pq, int data)
 	//이진트리 마지막 부분에 data가 들어간다. now는 push된 데이터의 인덱스
 	pq->heap[pq->count] = data;
 	int now = pq->count;
-	int parent = (pq->count -1)/2;
+	int parent = (pq->count -1)/2; // 이 부분은 그냥 공식이다.
 	//새 원소 삽입 후 상향식으로 힙을 구성
 	while(now > 0 && (pq->heap[now])>(pq->heap[parent]))
 	{
