@@ -6,7 +6,7 @@ python의 set과 dictionary와 비슷
 set은 data를 key로 사용한다. 정렬된 위치에 데이터를 삽입하여 검색 속도가 빠르다.
 키의 중복 ㄴㄴ
 
-
+iterator(반복자)에 관한 내용은 https://eehoeskrap.tistory.com/263
 */
 
 // #include<iostream>

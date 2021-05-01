@@ -5,7 +5,7 @@ int main(void){
     std::string input;  //using namespace std; 를 안하면 표준라이브러리 사용할 때 std::string 해줘야함.
     std::cin >> input;  //문자열 입력. >>는 공백문자(스페이스, 엔터, 탭)을 기준으로 입력을 받는다. 한줄을 전체로 입력받고 싶으면 getline을 이용해야한다.
     std::cout << input << std::endl;    //문자열 출력
-    system("pause");
+    
     return 0;
 }
 
