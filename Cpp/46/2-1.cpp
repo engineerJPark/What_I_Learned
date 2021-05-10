@@ -31,7 +31,7 @@ public:
 int main(){
 	Student a = Student("Park", 100, 90);
 	a.Show();	//정상출력된다.
-	//cout << a.getSum();	//여기에서는 오류가 뜬다. private 부분에 직접 접근했기 때문.
+	//cout << a.getSum();	//주석을 풀고 실행시 오류가 뜬다. private 부분에 직접 접근했기 때문.
 
 	return 0;
 }
