@@ -18,7 +18,7 @@ private:
 	int damage;
 public:
 	Character(string name, int hp, int damage): name(name), ragepoint(0), hp(hp), damage(damage) {}
-	~Character() { cout << "[객체가 소멸됩니다.]\n" ; }
+	~Character() { cout << "[객체 소멸]\n" ; }
 	void pointUp() {ragepoint++;}
 	void show(){
 		cout << name << "[" << ragepoint << "]" << hp << " " << damage << '\n' ;
@@ -26,9 +26,9 @@ public:
 };
 
 int main(void){
-	Character* character1 = new Character("슬라임", 10, 20);	//객체의 주소를 담은 변수 character1. 
+	Character* character1 = new Character("monster1", 10, 20);	//객체의 주소를 담은 변수 character1. 
 	character1->pointUp();
-	Character character2(*character1);	//객체의 주소를 넣는다.
+	Character character2(*character1);	//객체의 주소를 역참조해서 넣는다. 
 	character2.pointUp();
 	character1->show();
 	character2.show();

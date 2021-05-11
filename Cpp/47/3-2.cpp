@@ -1,6 +1,6 @@
-//기본 생성자
-//생성자를 정의하지 않은 경우 사용된다.
-//parameter를 가지지 않으며 Atrribute가 0,NULL로 초기화된다.
+// 기본 생성자
+// 생성자를 정의하지 않은 경우 사용된다.
+// parameter를 가지지 않으며 Atrribute가 0,NULL로 초기화된다.
 
 #include <iostream>
 #include <string>
