@@ -14,8 +14,7 @@ public:
 	}
 	
 	NUMBOX operator+(NUMBOX &ref){
-//		return NUMBOX(num1+ref.num1, num2+ref.num2);
-		NUMBOX(num1+ref.num1, num2+ref.num2);		//이경우에는 쓰레기값을 받는다. 즉 반환받는 값이 정상적인 값이 없다.
+		return NUMBOX(num1+ref.num1, num2+ref.num2);
 	}
 };
 

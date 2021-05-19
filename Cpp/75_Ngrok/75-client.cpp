@@ -12,8 +12,8 @@ int main(){
 		boost::asio::io_service io_service;
 		// 서버 주소 파악하는 resolver 객체. 도메인 이름을 tcp 종단점으로 바꾼다.
 		tcp::resolver resolver(io_service);
-		// 로컬서버(127.0.0.1), 서비스는 Daytime 프로토콜
-		tcp::resolver::query query("localhost", "daytime");
+		/*여기에 이제 공인 IP를 넣자*/
+		tcp::resolver::query query("0.tcp.ngrok.io", "16273");
 		// DNS 통해서 IP, port 번호 가져온다.
 		tcp::resolver::iterator endpoint_iterator = resolver.resolve(query);
 		// 소켓 객체 초기화, 서버에 연결

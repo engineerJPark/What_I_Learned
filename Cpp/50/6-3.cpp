@@ -31,9 +31,8 @@ public:
 int Person::count = 0;
 
 int main(void) {
-	Person p1("나동빈");
-	Person p2("홍길동");
-	Person p3("이순신");
+	Person p1("Alex");
+	Person p2("Bob");
+	Person p3("Cert");
 	cout << "사람의 수: " << Person::count << '\n';
-	system("pause");
 }

@@ -1,10 +1,6 @@
 #include<iostream>
 #include<string>
 
-//생성자 : 부모 먼저 자식 나중
-//소멸자 : 자식 먼저 부모 나중
-//오버라이딩 : 부모클래스의 함수 무시, 자식클래스에서 같은 이름의 함수 재정의. 오버라이딩을 적용한 함수의 원형은 기존 함수와 동일한 매개변수를 전달 받는다.
-
 using namespace std;
 
 class Person{
@@ -25,21 +21,21 @@ private:
 	int studentID;
 	//name 변수는 부모class name에서 가져온다.
 public:
-	Student(int studentID, string name) : Person(name){	//부모 class의 생성자에 입력받은 name을 집어넣는다.
-		this->studentID = studentID;					//그런데 그럼 어느 name이 어느 name이고 어디서 시작해서 어디서 끝나는 거지?
+	Student(int studentID, string name) : Person(name){	
+		this->studentID = studentID;					
 	}
 	void show(){
 		cout << "학생번호 : " << studentID << endl;
 		cout << "학생이름 : " << getName() << endl;
 		
 	}
-	void showName(){								//오버라이딩에 의해 Person 클래스의 showName은 무시된다.
+	void showName(){ // 오버라이딩에 의해 Person 클래스의 showName은 무시된다.
 		cout << "학생이름 : " << getName() << endl;
 	}
 };
 
 int main(){
-	Student student = Student(1, "박준성");
+	Student student = Student(1, "Alex");
 	student.show();
 	student.showName();
 	return 0;

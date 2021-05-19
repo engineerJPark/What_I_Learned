@@ -10,7 +10,7 @@ class Person{
 private:
 	string name;
 public:
-	Person(){ name = "훠훠훠";}
+	Person(){ name = "1";}
 	Person(string name):name(name){}
 	void showName(){ cout << "이름 : " << name << endl;}
 };
@@ -19,7 +19,7 @@ public:
 int main(void){
 	Person person1;
 	person1.showName();
-	Person person2("Alex");
+	Person person2("2");
 	person2.showName();
 	return 0;
 }

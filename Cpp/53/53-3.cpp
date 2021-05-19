@@ -11,7 +11,6 @@
 
 using namespace std;
 
-// template <typename T>이 핵심이다.
 template <typename T>
 class Data{
 private:
@@ -23,7 +22,7 @@ public:
 };
 
 int main(){
-	Data<int> data1(1); //<>안에 data를 넣어서 어떤 자료형이 들어가는 지 공지하기
+	Data<int> data1(1);
 	Data<string> data2("공대창고");
 	cout << data1.getData() << ":" << data2.getData() << "\n";
 	

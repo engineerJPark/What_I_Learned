@@ -2,7 +2,7 @@
 
 /*
 function template는 처음으로 호출될때 instance를 생성한다.
-이후 생성된 instance는 해당 타입에 따라 튻후화가 이루어지고 계속 재사용된다.
+이후 생성된 instance는 해당 타입에 따라 특수화가 이루어지고 계속 재사용된다.
 
 template는 특정 type에 대해 explicit specialization을 제공한다.
 특정 타입에 대해 특수기능을 정의 가능하다.

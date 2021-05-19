@@ -14,7 +14,7 @@ private :
     friend void set_name(Friend1&, string);
 };
  
- 
+// 클래스 밖에서 함수 정의
 void set_name(Friend1& f, string s) {
     f.name = s;
     cout << f.name << "\n";
@@ -23,7 +23,7 @@ void set_name(Friend1& f, string s) {
 int main(void) {
     Friend1 f1;
  
-    set_name(f1, "열코");
+    set_name(f1, "Alex");
  
     return 0;
 }

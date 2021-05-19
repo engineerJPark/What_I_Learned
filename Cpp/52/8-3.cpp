@@ -20,7 +20,11 @@ public:
 
 int main()
 {
-	Data<int> data1(1);			//class template은 <>안에 아무것도 안쓰면 컴파일 에러가 난다.
+	Data<int> data1(1);
 	Data<string> data2("Alex");	
 	cout << data1.getData() << ":" << data2.getData() << "\n";
+	
+	// Data<> data3(1);
+	// class template은 <>안에 아무것도 안쓰면 컴파일 에러가 난다.
+	// error: wrong number of template arguments (0, should be 1)
 }

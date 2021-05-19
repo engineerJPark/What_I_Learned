@@ -14,17 +14,24 @@ private:
 public:
 	Student(int studentId, string name): studentId(studentId), name(name) { }
 	
-	//매개변수를 두개 써야하는 경우에는 반드시 friend 명령어로 캡슐화를 시켜주자.
+	// 자신의 클래스에 대한 매개변수를 두개 써야하는 경우에는
+	// 반드시 friend 명령어로 캡슐화를 시켜주자.
+	// friend 키워드를 이용해 다른 객체의 private 멤버인 name에 바로 접근 가능.
+	// 원래는 안되서 stuent.operator+ 형식으로 들어가는건데
 	friend Student operator +(const Student &student, const Student &other) {
-		
-		// friend 키워드를 이용해 다른 객체의 private 멤버인 name에 바로 접근 가능. 원래는 안되서 stuent.operator+ 형식으로 들어가는건데
 		return Student(student.studentId, student.name + " & " + other.name);
 	}
-	void showName() { cout << "이름: " << name << '\n'; }
+	
+	// 아래와 같이 대체할 수 있다.
+	// Student operator +(const Student &other) {
+	// 	return Student(studentId, name + " & " + other.name);
+	// }
+
+	void showName() { cout << "Name: " << name << '\n'; }
 };
 
 int main(void) {
-	Student student(1, "나동빈");
+	Student student(1, "Alex");
 	Student result = student + student;
 	result.showName();
 }

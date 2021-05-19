@@ -5,6 +5,7 @@
 
 using namespace std;
 
+// default 자료형을 지정해준다.
 template <typename T = int>
 class Data
 {
@@ -19,7 +20,8 @@ public:
 int main()
 {
 	Data<> data1(1);
-	//Data data1(1);	//오류 발생. why?
 	Data<string> data2("Alex");
 	cout << data1.getData() << ":" << data2.getData() << "\n";
+	
+	// Data data2(1);	//error: missing template arguments before ‘data2’
 }

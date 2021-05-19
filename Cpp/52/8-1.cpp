@@ -1,3 +1,5 @@
+/*https://blockdmask.tistory.com/43*/
+
 /*function template*/
 
 #include <iostream>
