@@ -15,31 +15,31 @@ int main(){
 }
 */
 
-////////////////////////////////////////////////////////
-// 일반적인 예외처리
 
-// #include<iostream>
 
-// using namespace std;
+#include<iostream>
 
-// int main(){
-// 	int a = 7, b = 0;
+using namespace std;
+
+int main(){
+	int a = 7, b = 0;
 	
-// 	try{
-// 		if(b == 0){
-// 			// if절 만족시 throw를 통해 바로 catch 구분으로 이동. parameter로 throw 뒤를 준다.
-// 			throw "can't divide by 0"; 
-// 		}
-// 		cout << a / b << '\n';
-// 	}
-// 	catch(const char* str){ // throw를 받는다.
-// 		cout << str << '\n';	
-// 	}
+	try{
+		if(b == 0){
+			// if절 만족시 throw를 통해 바로 catch 구분으로 이동. parameter로 throw 뒤를 준다.
+			throw "can't divide by 0"; 
+		}
+		cout << a / b << '\n';
+	}
+	catch(const char* str){ // throw를 받는다.
+		cout << str << '\n';	
+	}
 	
-// 	return 0;
-// }
+	return 0;
+}
 
-///////////////////////////////////////////////////////////
+
+/*
 // class에서의 예외처리
 
 #include<iostream>
@@ -74,7 +74,7 @@ int main(void){
 		}
 	}
 }
-
+*/
 
 /*
 참고자료

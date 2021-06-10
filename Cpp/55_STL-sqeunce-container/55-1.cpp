@@ -10,33 +10,36 @@ pop_back
 insert
 */
 
-// #include<iostream>
-// #include<deque>
+/*
+#include<iostream>
+#include<deque>
 
 
-// using namespace std;
+using namespace std;
 
-// int main(){
-// 	deque<int> d;
+int main(){
+	deque<int> d;
 	
-// 	d.push_front(3); d.push_back(7); d.pop_front(); d.push_front(4);
-// 	// 4 7
-// 	for(int i = 0; i < d.size(); i++){ cout << d[i] << ' ';}
-// 	cout << '\n';
+	d.push_front(3); d.push_back(7); d.pop_front(); d.push_front(4);
+	// 4 7
+	for(int i = 0; i < d.size(); i++){ cout << d[i] << ' ';}
+	cout << '\n';
 	
-// 	deque<int>::iterator iter; // 각 원소에 접근하게 해주는 iterator
-// 	iter = d.begin(); // 시작 부분에 위치한다.
-// 	d.insert(iter + 1, 3, 5); // 5를 3번 입력해서 4 5 5 5 7
-// 	iter = d.begin();
-// 	d.insert(iter + 1, 1, 9); // 9를 1번 입력해서 4 9 5 5 5 7
+	deque<int>::iterator iter; // 각 원소에 접근하게 해주는 iterator
+	iter = d.begin(); // 시작 부분에 위치한다.
+	// deque.insert(position, numbers, data)
+	d.insert(iter + 1, 3, 5); // 5를 3번 입력해서 4 5 5 5 7
+	iter = d.begin();
+	d.insert(iter + 1, 1, 9); // 9를 1번 입력해서 4 9 5 5 5 7
 	
-// 	for(int i = 0; i < d.size(); i++){ cout << d[i] << ' '; }
-// 	cout << '\n';
-// 	d.clear(); // 덱의 모든 원소 제거
-// 	cout << d.empty() << '\n'; // 비어있으면 empty함수가 1을 반환
+	for(int i = 0; i < d.size(); i++){ cout << d[i] << ' '; }
+	cout << '\n';
+	d.clear(); // 덱의 모든 원소 제거
+	cout << d.empty() << '\n'; // 비어있으면 empty함수가 1을 반환
 	
-// 	return 0;
-// }
+	return 0;
+}
+*/
 
 /*
 vector는 뒤쪽에서만 push pop이 가능하다. 배열처럼 사용 가능

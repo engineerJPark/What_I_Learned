@@ -17,7 +17,7 @@ int main(void){
 	for(int i = 0; i < n; i++){ cin >> x; pq.push(x); }
 	while(!pq.empty()){
 		cout << pq.top() << ' ';
-		pq.pop()
+		pq.pop();
 	}
 	
 	return 0;

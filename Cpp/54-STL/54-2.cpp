@@ -13,7 +13,7 @@ int main(void){
 	q.push(7); q.push(5); q.push(4); q.pop(); q.push(6); q.pop();
 	
 	while (!q.empty()){ // stack 원소가 하나라도 남아있는 경우
-		cout << q.top() << ' ';
+		cout << q.front() << ' ';
 		q.pop();
 	}
 	

@@ -22,12 +22,12 @@ iterator(반복자)에 관한 내용은 https://eehoeskrap.tistory.com/263
 	
 // 	for(; iter != s.end(); iter++){ //2 4 6 8 10
 // 		cout << *iter << ' '; // iterator는 pointer의 속성을 가지는 객체이다.
-// 		// https://eehoeskrap.tistory.com/263
 // 	}
 // 	cout << '\n';
 	
 // 	s.insert(1);
 // 	s.insert(3);
+// 	s.insert(5);
 // 	s.insert(5);
 // 	iter = s.begin();
 // 	for(; iter != s.end(); iter++){ //1 2 3 4 5 6 8 10
@@ -60,8 +60,10 @@ int main(){
 	for(; iter !=m.end(); iter++){
 		cout << iter->first << ':' << iter->second << '\n';
 	}
-	m["hmm"] = 4;
+	m["hmm"] = 4; // 새로운 key, value를 추가한다.
 	cout << m["nobody"] << '\n'; // nobody도 접근을 시도했기에, 0의 value로 새로 생긴다.
+	
+	cout << '\n';
 	
 	iter = m.begin();
 	for(; iter != m.end(); iter++){
